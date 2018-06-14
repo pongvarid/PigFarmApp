@@ -6,4 +6,12 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <string name="main_tab_1_history">ประวัติ</string>
+    <string name="main_tab_2_breed">ผสมพันธุ์</string>
+    <string name="main_tab_3_maternity">คลอด</string>
+    <string name="main_tab_4_wean">หย่านม</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
