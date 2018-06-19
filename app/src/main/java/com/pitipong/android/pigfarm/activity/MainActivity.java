@@ -24,8 +24,7 @@ import com.pitipong.android.pigfarm.helper.NonSwipeableViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends BaseActivity{
 
     Toolbar toolbar;
     TabLayout tabs;
@@ -45,36 +44,33 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
+        initView();
+        initToolbar();
+        initFragment();
+    }
+
+    private void initView(){
         toolbar = findViewById(R.id.toolbar);
         viewPager = findViewById(R.id.viewPager);
         tabs = findViewById(R.id.tabLayout);
         drawerLayout = findViewById(R.id.drawer_layout);
         navView = findViewById(R.id.nav_view);
-
-        initToolbar();
-        initFragment();
     }
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
-
         toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
-        navView.setNavigationItemSelectedListener(this);
     }
 
     private void initFragment() {
-
         historyFragment = HistoryFragment.newInstance();
         breedFragment = BreedFragment.newInstance();
         maternityFragment = MaternityFragment.newInstance();
         weanFragment = WeanFragment.newInstance();
-
         setupViewPager(viewPager);
     }
 
@@ -86,7 +82,6 @@ public class MainActivity extends AppCompatActivity
         adapter.addFragment(weanFragment, getString(R.string.main_tab_4_wean));
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(4);
-
         setupTabLayout();
     }
 
@@ -101,29 +96,5 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
     }
 }
