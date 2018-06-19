@@ -3,6 +3,7 @@ package com.pitipong.android.pigfarm.activity;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -20,22 +21,17 @@ import com.pitipong.android.pigfarm.fragment.MaternityFragment;
 import com.pitipong.android.pigfarm.fragment.WeanFragment;
 import com.pitipong.android.pigfarm.helper.NonSwipeableViewPager;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @InjectView(R.id.toolbar)
     Toolbar toolbar;
-    @InjectView(R.id.nav_view)
-    NavigationView navView;
-    @InjectView(R.id.drawer_layout)
-    DrawerLayout drawerLayout;
-    @InjectView(R.id.viewPager)
-    NonSwipeableViewPager viewPager;
-    @InjectView(R.id.tabs)
     TabLayout tabs;
+    ViewPager viewPager;
+    NavigationView navView;
+    DrawerLayout drawerLayout;
 
     private HistoryFragment historyFragment;
     private BreedFragment breedFragment;
@@ -49,15 +45,21 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
+
+        toolbar = findViewById(R.id.toolbar);
+        viewPager = findViewById(R.id.viewPager);
+        tabs = findViewById(R.id.tabLayout);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navView = findViewById(R.id.nav_view);
+
         initToolbar();
         initFragment();
-
-
     }
 
     private void initToolbar() {
         setSupportActionBar(toolbar);
+
         toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initFragment() {
+
         historyFragment = HistoryFragment.newInstance();
         breedFragment = BreedFragment.newInstance();
         maternityFragment = MaternityFragment.newInstance();
@@ -77,10 +80,10 @@ public class MainActivity extends AppCompatActivity
 
     private void setupViewPager(ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager(), MainActivity.this);
-        adapter.addFragment(historyFragment, "History");
-        adapter.addFragment(breedFragment, "Breed");
-        adapter.addFragment(maternityFragment, "Maternity");
-        adapter.addFragment(weanFragment, "Wean");
+        adapter.addFragment(historyFragment, getString(R.string.main_tab_1_history));
+        adapter.addFragment(breedFragment, getString(R.string.main_tab_2_breed));
+        adapter.addFragment(maternityFragment, getString(R.string.main_tab_3_maternity));
+        adapter.addFragment(weanFragment, getString(R.string.main_tab_4_wean));
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(4);
 
@@ -98,28 +101,6 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
