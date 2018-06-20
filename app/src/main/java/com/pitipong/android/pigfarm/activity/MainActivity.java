@@ -12,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.pitipong.android.pigfarm.R;
 import com.pitipong.android.pigfarm.adapter.ViewPagerAdapter;
@@ -24,13 +27,20 @@ import com.pitipong.android.pigfarm.helper.NonSwipeableViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.pitipong.android.pigfarm.dal.Constant.MENU_CHECK_DATA;
+import static com.pitipong.android.pigfarm.dal.Constant.MENU_INSERT_DATA;
+import static com.pitipong.android.pigfarm.dal.Constant.MENU_LIST;
+import static com.pitipong.android.pigfarm.dal.Constant.MENU_SETTING;
+
 public class MainActivity extends BaseActivity{
 
-    Toolbar toolbar;
     TabLayout tabs;
     ViewPager viewPager;
     NavigationView navView;
     DrawerLayout drawerLayout;
+    View selectorInsertData, selectorCheckData, selectorList, selectorSetting;
+    LinearLayout menuInsertData, menuCheckData, menuList, menuSetting;
+    ImageView iconDrawerMenu;
 
     private HistoryFragment historyFragment;
     private BreedFragment breedFragment;
@@ -38,7 +48,6 @@ public class MainActivity extends BaseActivity{
     private WeanFragment weanFragment;
 
     ViewPagerAdapter adapter;
-    ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,24 +55,69 @@ public class MainActivity extends BaseActivity{
         setContentView(R.layout.activity_main);
 
         initView();
-        initToolbar();
         initFragment();
     }
 
     private void initView(){
-        toolbar = findViewById(R.id.toolbar);
         viewPager = findViewById(R.id.viewPager);
         tabs = findViewById(R.id.tabLayout);
         drawerLayout = findViewById(R.id.drawer_layout);
         navView = findViewById(R.id.nav_view);
+
+        // Drawer menu
+        iconDrawerMenu = findViewById(R.id.icDrawerMenu);
+
+        selectorInsertData = findViewById(R.id.selected1);
+        selectorCheckData = findViewById(R.id.selected2);
+        selectorList = findViewById(R.id.selected3);
+        selectorSetting = findViewById(R.id.selected4);
+
+        menuInsertData = findViewById(R.id.linearLayoutMenu1);
+        menuCheckData = findViewById(R.id.linearLayoutMenu2);
+        menuList = findViewById(R.id.linearLayoutMenu3);
+        menuSetting = findViewById(R.id.linearLayoutMenu4);
+
+        bindSelectorView(MENU_INSERT_DATA);
+
+        initOnClickMenuEvent();
     }
 
-    private void initToolbar() {
-        setSupportActionBar(toolbar);
-        toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+    private void initOnClickMenuEvent(){
+        iconDrawerMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+            }
+        });
+        menuInsertData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bindSelectorView(MENU_INSERT_DATA);
+            }
+        });
+        menuCheckData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bindSelectorView(MENU_CHECK_DATA);
+            }
+        });
+        menuList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bindSelectorView(MENU_LIST);
+            }
+        });
+        menuSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bindSelectorView(MENU_SETTING);
+            }
+        });
+
     }
 
     private void initFragment() {
@@ -87,6 +141,28 @@ public class MainActivity extends BaseActivity{
 
     private void setupTabLayout() {
         tabs.setupWithViewPager(viewPager);
+    }
+
+    private void bindSelectorView(int position){
+        selectorInsertData.setVisibility(View.INVISIBLE);
+        selectorCheckData.setVisibility(View.INVISIBLE);
+        selectorList.setVisibility(View.INVISIBLE);
+        selectorSetting.setVisibility(View.INVISIBLE);
+        switch (position){
+            case MENU_INSERT_DATA:
+                selectorInsertData.setVisibility(View.VISIBLE);
+                break;
+            case MENU_CHECK_DATA:
+                selectorCheckData.setVisibility(View.VISIBLE);
+                break;
+            case MENU_LIST:
+                selectorList.setVisibility(View.VISIBLE);
+                break;
+            case MENU_SETTING:
+                selectorSetting.setVisibility(View.VISIBLE);
+                break;
+
+        }
     }
 
     @Override

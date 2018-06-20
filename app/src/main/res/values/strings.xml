@@ -12,6 +12,12 @@
     <string name="main_tab_3_maternity">คลอด</string>
     <string name="main_tab_4_wean">หย่านม</string>
 
+    <string name="drawer_1_insert_data">ทำรายการกรอกข้อมูล</string>
+    <string name="drawer_2_check_data">ตรวจสอบตารางข้อมูล</string>
+    <string name="drawer_3_list">รายการ</string>
+    <string name="drawer_4_setting">ตัวเลือกตั้งค่า</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_tab_1">บันทึก สุกรแม่พันธุ์</string>
 </resources>
