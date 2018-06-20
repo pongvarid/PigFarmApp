@@ -1,199 +1,442 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".fragment.HistoryFragment">
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:gravity="center"
-       android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-       <TextView
-           android:layout_width="match_parent"
-           android:layout_height="?actionBarSize"
-           android:text="@string/history_count"
-           android:textSize="16sp"
-           android:paddingTop="6dp"
-           android:paddingBottom="6dp"
-           android:gravity="center|start"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp">
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="48dp"
-           android:orientation="horizontal"
-           android:weightSum="3">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:gravity="center|start"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:text="@string/history_count"
+                android:textSize="16sp" />
 
-           <LinearLayout
-               android:layout_width="0dp"
-               android:layout_height="match_parent"
-               android:layout_weight="1"
-               android:orientation="horizontal"
-               android:background="@drawable/shape_edittext_gray_boarder"
-               android:padding="6dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="match_parent"
-                   android:text="หน่วย"
-                   android:gravity="center" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_edittext_gray_boarder"
+                    android:orientation="horizontal"
+                    android:padding="6dp">
 
-               <EditText
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:background="@null"
-                   android:hint="0"
-                   android:paddingStart="6dp"
-                   android:singleLine="true"
-                   android:inputType="number"
-                   android:gravity="end|center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="หน่วย" />
 
-           </LinearLayout>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="end|center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:paddingStart="6dp"
+                        android:singleLine="true" />
 
-           <LinearLayout
-               android:layout_marginRight="16dp"
-               android:layout_marginLeft="16dp"
-               android:layout_width="0dp"
-               android:layout_height="match_parent"
-               android:layout_weight="1"
-               android:orientation="horizontal"
-               android:background="@drawable/shape_edittext_gray_boarder"
-               android:padding="6dp">
+                </LinearLayout>
 
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="match_parent"
-                   android:text="เรือน"
-                   android:gravity="center" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_edittext_gray_boarder"
+                    android:orientation="horizontal"
+                    android:padding="6dp">
 
-               <EditText
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:background="@null"
-                   android:hint="0"
-                   android:paddingStart="6dp"
-                   android:singleLine="true"
-                   android:gravity="end|center"
-                   android:inputType="number"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="เรือน" />
 
-           </LinearLayout>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="end|center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:paddingStart="6dp"
+                        android:singleLine="true" />
 
-
-           <LinearLayout
-               android:layout_width="0dp"
-               android:layout_height="match_parent"
-               android:layout_weight="1"
-               android:orientation="horizontal"
-               android:background="@drawable/shape_edittext_gray_boarder"
-               android:padding="6dp">
-
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="match_parent"
-                   android:text="คอก"
-                   android:gravity="center" />
-
-               <EditText
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:background="@null"
-                   android:hint="0"
-                   android:paddingStart="6dp"
-                   android:singleLine="true"
-                   android:gravity="end|center"
-                   android:inputType="number"/>
-           </LinearLayout>
+                </LinearLayout>
 
 
-       </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_edittext_gray_boarder"
+                    android:orientation="horizontal"
+                    android:padding="6dp">
 
-       <RelativeLayout
-           android:layout_marginTop="16dp"
-           android:layout_width="match_parent"
-           android:layout_height="48dp"
-           android:background="@drawable/shape_edittext_gray_boarder">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="คอก" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="end|center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:paddingStart="6dp"
+                        android:singleLine="true" />
+                </LinearLayout>
 
 
+            </LinearLayout>
 
-       </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_edittext_gray_boarder"
+                android:padding="6dp">
 
-       <RelativeLayout
-           android:layout_marginTop="16dp"
-           android:layout_width="match_parent"
-           android:layout_height="48dp"
-           android:background="@drawable/shape_edittext_gray_boarder">
+                <TextView
+                    android:id="@+id/textViewDOB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:text="@string/history_dob" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@+id/textViewDOB"
+                    android:layout_toStartOf="@+id/imageViewCalendar"
+                    android:gravity="center|end"
+                    android:text="00/00/000" />
 
 
+                <ImageView
+                    android:id="@+id/imageViewCalendar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:paddingStart="16dp"
+                    android:src="@drawable/ic_calendar" />
 
-       </RelativeLayout>
+            </RelativeLayout>
 
-       <View
-           android:layout_marginTop="28dp"
-           android:layout_width="match_parent"
-           android:layout_height="0.5dp"
-           android:background="@color/color_menu_divider"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_edittext_gray_boarder"
+                android:padding="6dp">
 
-       <TextView
-           android:layout_width="match_parent"
-           android:layout_height="?actionBarSize"
-           android:text="ประวัติสายพันธุ์"
-           android:textSize="16sp"
-           android:paddingTop="6dp"
-           android:paddingBottom="6dp"
-           android:gravity="center|start"/>
+                <TextView
+                    android:id="@+id/textViewDOBImportToFarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:text="@string/history_import_to_farm" />
 
-       <ImageView
-           android:layout_width="250dp"
-           android:layout_height="250dp"
-           android:src="@mipmap/ic_launcher"
-           />
-       <ImageView
-           android:layout_width="250dp"
-           android:layout_height="250dp"
-           android:src="@mipmap/ic_launcher"
-           />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@+id/textViewDOBImportToFarm"
+                    android:layout_toStartOf="@+id/imageViewCalendarImportToFarm"
+                    android:gravity="center|end"
+                    android:text="00/00/000" />
 
-       <ImageView
-           android:layout_width="250dp"
-           android:layout_height="250dp"
-           android:src="@mipmap/ic_launcher"
-           />
 
-       <ImageView
-           android:layout_width="250dp"
-           android:layout_height="250dp"
-           android:src="@mipmap/ic_launcher"
-           />
+                <ImageView
+                    android:id="@+id/imageViewCalendarImportToFarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:paddingStart="16dp"
+                    android:src="@drawable/ic_calendar" />
 
-       <ImageView
-           android:layout_width="250dp"
-           android:layout_height="250dp"
-           android:src="@mipmap/ic_launcher"
-           />
+            </RelativeLayout>
 
-       <ImageView
-           android:layout_width="250dp"
-           android:layout_height="250dp"
-           android:src="@mipmap/ic_launcher"
-           />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="28dp"
+                android:background="@color/color_menu_divider" />
 
-       <ImageView
-           android:layout_width="250dp"
-           android:layout_height="250dp"
-           android:src="@mipmap/ic_launcher"
-           />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:gravity="center|start"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp"
+                android:text="ประวัติสายพันธุ์"
+                android:textSize="16sp" />
 
-       <ImageView
-           android:layout_width="250dp"
-           android:layout_height="250dp"
-           android:src="@mipmap/ic_launcher"
-           />
 
-   </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/shape_edittext_gray_boarder"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/textViewFromWhere"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:text="แหล่งที่มา" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@+id/textViewFromWhere"
+                    android:layout_toStartOf="@+id/imageViewArrowDown"
+                    android:gravity="center|end" />
+
+                <ImageView
+                    android:id="@+id/imageViewArrowDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:paddingStart="16dp"
+                    android:src="@drawable/ic_arrow_down" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_edittext_gray_boarder"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/textViewBreeder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:text="พ่อพันธุ์" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/textViewBreeder"
+                    android:background="@null"
+                    android:gravity="center|end"
+                    android:singleLine="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_edittext_gray_boarder"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/textViewBreeders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:text="แม่พันธุ์" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/textViewBreeders"
+                    android:background="@null"
+                    android:gravity="center|end"
+                    android:singleLine="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_edittext_gray_boarder"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/textViewEarNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:text="เบอร์หู" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/textViewEarNumber"
+                    android:background="@null"
+                    android:gravity="center|end"
+                    android:inputType="number"
+                    android:singleLine="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_edittext_gray_boarder"
+                android:padding="6dp">
+
+                <TextView
+                    android:id="@+id/textViewBreed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:text="สายพันธุ์" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@+id/textViewBreed"
+                    android:layout_toStartOf="@+id/imageViewArrowDownBreed"
+                    android:gravity="center|end" />
+
+                <ImageView
+                    android:id="@+id/imageViewArrowDownBreed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:paddingStart="16dp"
+                    android:src="@drawable/ic_arrow_down" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_edittext_gray_boarder"
+                    android:orientation="horizontal"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="เต้านมซ้าย" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="end|center"
+                        android:inputType="number"
+                        android:paddingStart="6dp"
+                        android:singleLine="true" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_edittext_gray_boarder"
+                    android:orientation="horizontal"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="เต้านมขวา" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:gravity="end|center"
+                        android:inputType="number"
+                        android:paddingStart="6dp"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="18dp"
+                android:background="@color/color_menu_divider" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="บันทึกประวัติ"
+                android:textColor="@color/color_white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
