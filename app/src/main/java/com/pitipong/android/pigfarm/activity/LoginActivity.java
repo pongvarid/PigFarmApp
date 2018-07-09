@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.pitipong.android.pigfarm.Application;
 import com.pitipong.android.pigfarm.R;
 import com.pitipong.android.pigfarm.api.Api;
 import com.pitipong.android.pigfarm.api.request.LoginRequest;
@@ -67,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             textViewDesc.setText("Loading...");
                             textViewDesc.setTextColor(getResources().getColor(R.color.gray));
+                            buttonSubmit.setClickable(false);
                             postLogin(edtEmail.getText().toString(), edtPassword.getText().toString());
                         }
                     }
@@ -118,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void postLogin(String email, String password) {
-        String emailMock = "admin@app.comddd";
+        String emailMock = "admin@app.com";
         String passwordMock = "password";
         Call<LoginResponse> loginModelCall = Api.getInstance(this).getService().postLogin(new LoginRequest(email, password));
         loginModelCall.enqueue(new Callback<LoginResponse>() {
@@ -126,12 +128,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Response<LoginResponse> response, Retrofit retrofit) {
                 Log.e(TAG, "onResponse: " + response.raw());
                 if (response.code() == 200) {
+                    Application.pm.setName(response.body().getName());
+                    Application.pm.setEmail(response.body().getEmail());
+                    Application.pm.setMemberToken(response.body().getAccessToken());
                     setValueToTextViewDesc(true);
-
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
                         }
                     },DELAY_FOR_INTENT_TO_ANOTHER_ACTIVITY);
                 } else {
@@ -155,6 +160,8 @@ public class LoginActivity extends AppCompatActivity {
             textViewDesc.setTextColor(ContextCompat.getColor(this, R.color.red));
             textViewDesc.setText("Something went wrong");
         }
+        buttonSubmit.setClickable(true);
+        Application.pm.setIsLogin(isSuccess);
     }
 
     @Override

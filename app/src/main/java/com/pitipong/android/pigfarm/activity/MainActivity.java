@@ -77,6 +77,8 @@ public class MainActivity extends BaseActivity{
 
         bindSelectorView(MENU_INSERT_DATA);
 
+        bindDataToView();
+
         initOnClickMenuEvent();
     }
 
@@ -160,6 +162,10 @@ public class MainActivity extends BaseActivity{
                 selectorSetting.setVisibility(View.VISIBLE);
                 break;
         }
+    }
+
+    private void bindDataToView(){
+
     }
 
     @Override

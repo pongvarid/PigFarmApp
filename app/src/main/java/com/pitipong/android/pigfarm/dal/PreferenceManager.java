@@ -19,6 +19,9 @@ public class PreferenceManager {
 
     private final String isLogin = "isLogin";
     private final String memberToken = "memberToken";
+
+    private final String name = "name";
+    private final String email = "email";
     
     public PreferenceManager(Context context) {
         sharedpreferences = context.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
@@ -50,4 +53,29 @@ public class PreferenceManager {
         return null;
     }
 
+    public void setName(String sName) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString(name, sName);
+        editor.commit();
+    }
+
+    public String getName() {
+        if (sharedpreferences.contains(name)) {
+            return sharedpreferences.getString(name, null);
+        }
+        return null;
+    }
+
+    public void setEmail(String sEmail) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString(email, sEmail);
+        editor.commit();
+    }
+
+    public String getEmail() {
+        if (sharedpreferences.contains(email)) {
+            return sharedpreferences.getString(email, null);
+        }
+        return null;
+    }
 }
