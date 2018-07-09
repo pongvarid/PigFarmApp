@@ -7,6 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.MainActivity"
     tools:showIn="@layout/app_bar_main"
+    android:background="@color/color_white"
     android:orientation="vertical">
 
     <android.support.v4.view.ViewPager

@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import com.pitipong.android.pigfarm.R;
 
-public class BreedAddActivity extends AppCompatActivity {
+public class BreedAddActivity extends BaseActivity {
 
     private ImageView imageViewBack;
 

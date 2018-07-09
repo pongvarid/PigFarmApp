@@ -10,7 +10,7 @@ import com.pitipong.android.pigfarm.R;
 
 import static com.pitipong.android.pigfarm.dal.Constant.DELAY_FOR_SPLASH_SCREEN;
 
-public class SplashScreenActivity extends AppCompatActivity {
+public class SplashScreenActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

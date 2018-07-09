@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import com.pitipong.android.pigfarm.R;
 
-public class MaternityAddActivity extends AppCompatActivity {
+public class MaternityAddActivity extends BaseActivity {
 
     private ImageView imageViewBack;
 
