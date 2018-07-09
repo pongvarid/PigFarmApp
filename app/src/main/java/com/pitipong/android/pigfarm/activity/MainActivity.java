@@ -24,8 +24,6 @@ import com.pitipong.android.pigfarm.fragment.MaternityFragment;
 import com.pitipong.android.pigfarm.fragment.WeanFragment;
 import com.pitipong.android.pigfarm.helper.NonSwipeableViewPager;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 import static com.pitipong.android.pigfarm.dal.Constant.MENU_CHECK_DATA;
 import static com.pitipong.android.pigfarm.dal.Constant.MENU_INSERT_DATA;
@@ -78,6 +76,8 @@ public class MainActivity extends BaseActivity{
         menuSetting = findViewById(R.id.linearLayoutMenu4);
 
         bindSelectorView(MENU_INSERT_DATA);
+
+        bindDataToView();
 
         initOnClickMenuEvent();
     }
@@ -161,8 +161,11 @@ public class MainActivity extends BaseActivity{
             case MENU_SETTING:
                 selectorSetting.setVisibility(View.VISIBLE);
                 break;
-
         }
+    }
+
+    private void bindDataToView(){
+
     }
 
     @Override
