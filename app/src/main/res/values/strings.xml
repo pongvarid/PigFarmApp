@@ -23,4 +23,5 @@
     <string name="history_count">ประวัติจำนวน</string>
     <string name="history_dob">วันที่เกิด</string>
     <string name="history_import_to_farm">วันเข้าฟาร์ม</string>
+    <string name="title_activity_eeeerer">eeeerer</string>
 </resources>
