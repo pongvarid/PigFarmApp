@@ -29,6 +29,7 @@ public class SplashScreenActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                finish();
                 startActivity(intent);
             }
         },DELAY_FOR_SPLASH_SCREEN);

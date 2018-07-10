@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity{
 
     TabLayout tabs;
     ViewPager viewPager;
-    private ImageView imageViewBack;
+    ImageView imageViewBack;
 
     private HistoryFragment historyFragment;
     private BreedFragment breedFragment;
@@ -65,7 +65,6 @@ public class MainActivity extends BaseActivity{
         });
 
         bindDataToView();
-
     }
 
     private void initFragment() {

@@ -54,19 +54,23 @@ public class MenuActivity extends BaseActivity {
         textViewManageMotherBreed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, PigIDActivity.class));
+                Intent intent = new Intent(MenuActivity.this, PigIDActivity.class);
+                intent.putExtra("isSoundCard", false);
+                startActivity(intent);
             }
         });
         textViewCreateSoundCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, PigIDActivity.class));
+                Intent intent = new Intent(MenuActivity.this, PigIDActivity.class);
+                intent.putExtra("isSoundCard", true);
+                startActivity(intent);
             }
         });
         textViewTakeVaccine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(MenuActivity.this, VaccineActivity.class));
             }
         });
         textViewLogout.setOnClickListener(new View.OnClickListener() {
@@ -92,5 +96,10 @@ public class MenuActivity extends BaseActivity {
                         });
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        backToExitApp();
     }
 }

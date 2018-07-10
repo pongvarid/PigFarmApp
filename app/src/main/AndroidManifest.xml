@@ -50,7 +50,9 @@
             android:name=".activity.ProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activity.PigIDActivity"></activity>
+        <activity android:name=".activity.PigIDActivity" />
+        <activity android:name=".activity.VaccineActivity" />
+        <activity android:name=".activity.SoundCardActivity"></activity>
     </application>
 
 </manifest>
