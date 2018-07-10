@@ -24,4 +24,6 @@
     <string name="history_dob">วันที่เกิด</string>
     <string name="history_import_to_farm">วันเข้าฟาร์ม</string>
     <string name="title_activity_eeeerer">eeeerer</string>
+
+    <string name="warning_message_close_the_app">Press again to close app.</string>
 </resources>

@@ -1,24 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.MenuActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarAddBreed"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="@color/color_white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textViewName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center|start"
             android:minHeight="?actionBarSize"
-            android:text="สวัสดี ปิติพงษ์"/>
+            android:paddingStart="12dp"
+            android:text="สวัสดี ปิติพงษ์"
+            android:textSize="26sp" />
 
+        <TextView
+            android:id="@+id/textViewManagePersonalData"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/selector_button_menu"
+            android:clickable="true"
+            android:gravity="center|start"
+            android:paddingStart="12dp"
+            android:text="1 จัดการข้อมูลส่วนตัว"
+            android:textColor="@color/color_white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textViewManageMotherBreed"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/selector_button_menu"
+            android:clickable="true"
+            android:gravity="center|start"
+            android:paddingStart="12dp"
+            android:text="2 จัดการข้อมูลแม่พันธุ์หมู"
+            android:textColor="@color/color_white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textViewCreateSoundCard"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/selector_button_menu"
+            android:clickable="true"
+            android:gravity="center|start"
+            android:paddingStart="12dp"
+            android:text="3 สร้ัางซาวด์การ์ด"
+            android:textColor="@color/color_white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textViewTakeVaccine"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/selector_button_menu"
+            android:clickable="true"
+            android:gravity="center|start"
+            android:paddingStart="12dp"
+            android:text="4 การฉีดวักซีน"
+            android:textColor="@color/color_white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textViewLogout"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/selector_button_menu"
+            android:clickable="true"
+            android:gravity="center|start"
+            android:paddingStart="12dp"
+            android:text="5 Logout"
+            android:textColor="@color/color_white"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
-</android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.NavigationView>
+
+</LinearLayout>

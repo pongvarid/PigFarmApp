@@ -135,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                             finish();
                         }
                     },DELAY_FOR_INTENT_TO_ANOTHER_ACTIVITY);

@@ -22,7 +22,7 @@ public class SplashScreenActivity extends BaseActivity {
     private void intentToActivity(){
         final Intent intent;
         if (Application.pm.getIsLogin()){
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, MenuActivity.class);
         } else {
             intent = new Intent(this, LoginActivity.class);
         }
