@@ -54,13 +54,13 @@ public class MenuActivity extends BaseActivity {
         textViewManageMotherBreed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(MenuActivity.this, PigIDActivity.class));
             }
         });
         textViewCreateSoundCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(MenuActivity.this, PigIDActivity.class));
             }
         });
         textViewTakeVaccine.setOnClickListener(new View.OnClickListener() {

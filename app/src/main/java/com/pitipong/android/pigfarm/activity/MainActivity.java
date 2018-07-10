@@ -34,11 +34,7 @@ public class MainActivity extends BaseActivity{
 
     TabLayout tabs;
     ViewPager viewPager;
-    NavigationView navView;
-    DrawerLayout drawerLayout;
-    View selectorInsertData, selectorCheckData, selectorList, selectorSetting;
-    LinearLayout menuInsertData, menuCheckData, menuList, menuSetting;
-    ImageView iconDrawerMenu;
+    private ImageView imageViewBack;
 
     private HistoryFragment historyFragment;
     private BreedFragment breedFragment;
@@ -57,66 +53,18 @@ public class MainActivity extends BaseActivity{
     }
 
     private void initView(){
+        imageViewBack = findViewById(R.id.imageViewBack);
         viewPager = findViewById(R.id.viewPager);
         tabs = findViewById(R.id.tabLayout);
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navView = findViewById(R.id.nav_view);
 
-        // Drawer menu
-        iconDrawerMenu = findViewById(R.id.icDrawerMenu);
-
-        selectorInsertData = findViewById(R.id.selected1);
-        selectorCheckData = findViewById(R.id.selected2);
-        selectorList = findViewById(R.id.selected3);
-        selectorSetting = findViewById(R.id.selected4);
-
-        menuInsertData = findViewById(R.id.linearLayoutMenu1);
-        menuCheckData = findViewById(R.id.linearLayoutMenu2);
-        menuList = findViewById(R.id.linearLayoutMenu3);
-        menuSetting = findViewById(R.id.linearLayoutMenu4);
-
-        bindSelectorView(MENU_INSERT_DATA);
+        imageViewBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         bindDataToView();
-
-        initOnClickMenuEvent();
-    }
-
-    private void initOnClickMenuEvent(){
-        iconDrawerMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    drawerLayout.openDrawer(GravityCompat.START);
-                }
-            }
-        });
-        menuInsertData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bindSelectorView(MENU_INSERT_DATA);
-            }
-        });
-        menuCheckData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bindSelectorView(MENU_CHECK_DATA);
-            }
-        });
-        menuList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bindSelectorView(MENU_LIST);
-            }
-        });
-        menuSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bindSelectorView(MENU_SETTING);
-            }
-        });
 
     }
 
@@ -143,26 +91,6 @@ public class MainActivity extends BaseActivity{
         tabs.setupWithViewPager(viewPager);
     }
 
-    private void bindSelectorView(int position){
-        selectorInsertData.setVisibility(View.INVISIBLE);
-        selectorCheckData.setVisibility(View.INVISIBLE);
-        selectorList.setVisibility(View.INVISIBLE);
-        selectorSetting.setVisibility(View.INVISIBLE);
-        switch (position){
-            case MENU_INSERT_DATA:
-                selectorInsertData.setVisibility(View.VISIBLE);
-                break;
-            case MENU_CHECK_DATA:
-                selectorCheckData.setVisibility(View.VISIBLE);
-                break;
-            case MENU_LIST:
-                selectorList.setVisibility(View.VISIBLE);
-                break;
-            case MENU_SETTING:
-                selectorSetting.setVisibility(View.VISIBLE);
-                break;
-        }
-    }
 
     private void bindDataToView(){
 
@@ -170,10 +98,6 @@ public class MainActivity extends BaseActivity{
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+       backToExitApp();
     }
 }
