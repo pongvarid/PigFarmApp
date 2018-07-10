@@ -1,5 +1,6 @@
 package com.pitipong.android.pigfarm.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -47,7 +48,7 @@ public class MenuActivity extends BaseActivity {
         textViewManagePersonalData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(MenuActivity.this, ProfileActivity.class));
             }
         });
         textViewManageMotherBreed.setOnClickListener(new View.OnClickListener() {
