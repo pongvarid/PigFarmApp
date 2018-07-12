@@ -121,5 +121,12 @@ public class MessageBox {
         }
     }
 
+    public void dismissMessageBox (){
+        if(alertDialog != null){
+            if(alertDialog.isShowing()) {
+                alertDialog.dismiss();
+            }
+        }
+    }
 
 }

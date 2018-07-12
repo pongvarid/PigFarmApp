@@ -3,6 +3,7 @@
     package="com.pitipong.android.pigfarm">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".Application"
