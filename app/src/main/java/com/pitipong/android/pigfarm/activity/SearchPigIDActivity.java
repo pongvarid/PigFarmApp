@@ -25,6 +25,8 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
     private EditText edittextSearchID;
     private ImageView imageViewBack, imageViewSearch;
 
+
+    private boolean isSoundCard;
     private ZXingScannerView mScannerView;
 
     @Override
@@ -54,6 +56,9 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         imageViewSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                checkPathToGo();
+
                 if (edittextSearchID.getText().length() > 0){
 
                 } else {
@@ -81,6 +86,20 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
                 setupUI(innerView);
             }
         }
+    }
+
+    private void checkPathToGo() {
+        isSoundCard = getIntent().getExtras().getBoolean("isSoundCard");
+        if (isSoundCard) {
+            startActivity(new Intent(SearchPigIDActivity.this, SoundCardActivity.class));
+        } else {
+            startActivity(new Intent(SearchPigIDActivity.this, MainActivity.class));
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
     @Override

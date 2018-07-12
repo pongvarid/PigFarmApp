@@ -3,6 +3,7 @@
     package="com.pitipong.android.pigfarm">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".Application"
@@ -54,9 +55,14 @@
             android:name=".activity.SearchPigIDActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activity.PigIDActivity" />
-        <activity android:name=".activity.VaccineActivity" />
-        <activity android:name=".activity.SoundCardActivity"></activity>
+        <activity
+            android:name=".activity.VaccineActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.SoundCardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

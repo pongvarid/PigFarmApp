@@ -32,7 +32,7 @@ import retrofit.Retrofit;
 
 import static com.pitipong.android.pigfarm.dal.Constant.DELAY_FOR_INTENT_TO_ANOTHER_ACTIVITY;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private static final String TAG = "LoginFormActivity";
 
@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                             textViewDesc.setText("Loading...");
                             textViewDesc.setTextColor(getResources().getColor(R.color.gray));
                             buttonSubmit.setClickable(false);
+                            showLoadingProgress();
                             postLogin(edtEmail.getText().toString(), edtPassword.getText().toString());
                         }
                     }
@@ -135,11 +136,13 @@ public class LoginActivity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            dismissLoadingProgress();
                             startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                             finish();
                         }
                     },DELAY_FOR_INTENT_TO_ANOTHER_ACTIVITY);
                 } else {
+                    dismissLoadingProgress();
                     setValueToTextViewDesc(false);
                 }
             }
@@ -148,6 +151,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onFailure(Throwable t) {
                 Log.e(TAG, "onFailure: " + t.getMessage());
                 setValueToTextViewDesc(false);
+                dismissLoadingProgress();
             }
         });
     }
