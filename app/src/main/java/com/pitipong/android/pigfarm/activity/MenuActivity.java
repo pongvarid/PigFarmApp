@@ -44,6 +44,7 @@ public class MenuActivity extends BaseActivity {
         textViewName.setText("สวัสดี "+Application.pm.getName());
     }
 
+
     private void initEventOnClick(){
         textViewManagePersonalData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +55,7 @@ public class MenuActivity extends BaseActivity {
         textViewManageMotherBreed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuActivity.this, PigIDActivity.class);
+                Intent intent = new Intent(MenuActivity.this, SearchPigIDActivity.class);
                 intent.putExtra("isSoundCard", false);
                 startActivity(intent);
             }
@@ -62,7 +63,7 @@ public class MenuActivity extends BaseActivity {
         textViewCreateSoundCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuActivity.this, PigIDActivity.class);
+                Intent intent = new Intent(MenuActivity.this, SearchPigIDActivity.class);
                 intent.putExtra("isSoundCard", true);
                 startActivity(intent);
             }
