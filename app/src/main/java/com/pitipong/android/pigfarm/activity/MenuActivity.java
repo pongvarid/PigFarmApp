@@ -44,6 +44,7 @@ public class MenuActivity extends BaseActivity {
         textViewName.setText("สวัสดี "+Application.pm.getName());
     }
 
+
     private void initEventOnClick(){
         textViewManagePersonalData.setOnClickListener(new View.OnClickListener() {
             @Override
