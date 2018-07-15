@@ -36,4 +36,6 @@ dependencies {
     compile 'com.squareup.okhttp:logging-interceptor:2.6.0'
 
     implementation 'me.dm7.barcodescanner:zxing:1.8.4'
+
+    compile 'com.karumi:dexter:4.2.0'
 }

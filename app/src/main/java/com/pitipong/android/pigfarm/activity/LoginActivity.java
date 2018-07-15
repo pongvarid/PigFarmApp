@@ -4,14 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.pitipong.android.pigfarm.Application;
@@ -19,14 +17,9 @@ import com.pitipong.android.pigfarm.R;
 import com.pitipong.android.pigfarm.api.Api;
 import com.pitipong.android.pigfarm.api.request.LoginRequest;
 import com.pitipong.android.pigfarm.api.response.LoginResponse;
-import com.squareup.okhttp.ResponseBody;
-
-import java.io.IOException;
-import java.lang.annotation.Annotation;
 
 import retrofit.Call;
 import retrofit.Callback;
-import retrofit.Converter;
 import retrofit.Response;
 import retrofit.Retrofit;
 
@@ -131,7 +124,7 @@ public class LoginActivity extends BaseActivity {
                 if (response.code() == 200) {
                     Application.pm.setName(response.body().getName());
                     Application.pm.setEmail(response.body().getEmail());
-                    Application.pm.setMemberToken(response.body().getAccessToken());
+                    Application.pm.setAccessToken(response.body().getAccessToken());
                     setValueToTextViewDesc(true);
                     new Handler().postDelayed(new Runnable() {
                         @Override

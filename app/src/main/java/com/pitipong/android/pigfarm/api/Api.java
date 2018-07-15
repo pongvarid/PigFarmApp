@@ -2,9 +2,12 @@ package com.pitipong.android.pigfarm.api;
 
 import android.content.Context;
 
+import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 
+import java.io.IOException;
 import java.net.CookieManager;
 import java.net.CookiePolicy;
 import java.util.HashMap;
@@ -81,13 +84,14 @@ public class Api {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         okHttpClient.interceptors().add(interceptor);
 
-        // Add header
+//        // Add header
 //        okHttpClient.networkInterceptors().add(new Interceptor() {
 //            public com.squareup.okhttp.Response intercept(Chain chain) throws IOException {
 //                Request.Builder builder = chain.request().newBuilder();
-//                for (Map.Entry<String, String> entry : headers.entrySet()) {
-//                    builder.addHeader(entry.getKey(), entry.getValue());
-//                }
+////                for (Map.Entry<String, String> entry : headers.entrySet()) {
+////                    builder.addHeader(entry.getKey(), entry.getValue());
+////                }
+//                builder.addHeader();
 //                return chain.proceed(builder.build());
 //            }
 //        });

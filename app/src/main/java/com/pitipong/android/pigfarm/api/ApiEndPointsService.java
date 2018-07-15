@@ -3,14 +3,22 @@ package com.pitipong.android.pigfarm.api;
 
 import com.pitipong.android.pigfarm.api.request.LoginRequest;
 import com.pitipong.android.pigfarm.api.response.LoginResponse;
+import com.pitipong.android.pigfarm.api.response.PigDataResponse;
 
 import retrofit.Call;
 import retrofit.http.Body;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
+import retrofit.http.Header;
 import retrofit.http.POST;
+import retrofit.http.GET;
+import retrofit.http.Path;
 
+import static com.pitipong.android.pigfarm.api.ServiceURL.URL_GET_PIG;
 import static com.pitipong.android.pigfarm.api.ServiceURL.URL_LOGIN;
+import static com.pitipong.android.pigfarm.dal.Constant.ACCEPT;
+import static com.pitipong.android.pigfarm.dal.Constant.AUTHORIZATION;
+import static com.pitipong.android.pigfarm.dal.Constant.CONTENT_TYPE;
 
 /**
  * Created by pw on 2/5/2016.
@@ -39,8 +47,12 @@ public interface ApiEndPointsService {
     Call<LoginResponse> postLogin(
             @Body LoginRequest loginRequest);
 
-//    @GET("tables/Users")
-//    Call<List<Objects>> getUserProfile();
+    @GET(URL_GET_PIG+"/{id}")
+    Call<PigDataResponse> getPigData(
+            @Header(AUTHORIZATION) String authorization,
+            @Header(ACCEPT) String accept,
+            @Header(CONTENT_TYPE) String contentType,
+            @Path("id") String id);
 //
 //    // Upload Image and PDF file
 //    @Multipart

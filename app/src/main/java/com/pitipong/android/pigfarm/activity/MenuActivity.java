@@ -1,7 +1,6 @@
 package com.pitipong.android.pigfarm.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -86,7 +85,7 @@ public class MenuActivity extends BaseActivity {
                             public void onClickPositive() {
                                 Application.pm.setIsLogin(false);
                                 Application.pm.setEmail("");
-                                Application.pm.setMemberToken("");
+                                Application.pm.setAccessToken("");
                                 Application.pm.setName("");
                                 finishAffinity();
                             }

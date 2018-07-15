@@ -10,4 +10,8 @@ public class Constant {
     public static final int MENU_LIST = 3;
     public static final int MENU_SETTING = 4;
 
+    public static final String AUTHORIZATION = "Authorization";
+    public static final String ACCEPT = "Accept";
+    public static final String CONTENT_TYPE = "Content-Type";
+
 }

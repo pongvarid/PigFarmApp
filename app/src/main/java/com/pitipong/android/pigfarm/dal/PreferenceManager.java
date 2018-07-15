@@ -18,7 +18,7 @@ public class PreferenceManager {
     private SharedPreferences sharedpreferences;
 
     private final String isLogin = "isLogin";
-    private final String memberToken = "memberToken";
+    private final String accessToken = "accessToken";
 
     private final String name = "name";
     private final String email = "email";
@@ -40,15 +40,15 @@ public class PreferenceManager {
         return false;
     }
 
-    public void setMemberToken(String sMemberToken) {
+    public void setAccessToken(String sAccessToken) {
         SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.putString(memberToken, sMemberToken);
+        editor.putString(accessToken, sAccessToken);
         editor.commit();
     }
 
-    public String getMemberToken() {
-        if (sharedpreferences.contains(memberToken)) {
-            return sharedpreferences.getString(memberToken, null);
+    public String getAccessToken() {
+        if (sharedpreferences.contains(accessToken)) {
+            return sharedpreferences.getString(accessToken, null);
         }
         return null;
     }
@@ -78,4 +78,18 @@ public class PreferenceManager {
         }
         return null;
     }
+
+    public boolean getIS_PERMISSIONS_RATIONALE_CAMERA() {
+        if (sharedpreferences.contains("IS_PERMISSIONS_RATIONALE_CAMERA")) {
+            return sharedpreferences.getBoolean("IS_PERMISSIONS_RATIONALE_CAMERA", false);
+        }
+        return false;
+    }
+
+    public void setIS_PERMISSIONS_RATIONALE_CAMERA(boolean b) {
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putBoolean("IS_PERMISSIONS_RATIONALE_CAMERA", b);
+        editor.commit();
+    }
+
 }

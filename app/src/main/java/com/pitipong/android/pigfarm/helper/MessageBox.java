@@ -25,13 +25,14 @@ public class MessageBox {
         return instance;
     }
 
-    public AlertDialog alertMessage(String message, Activity currentActivity) {
+    public AlertDialog alertMessage(String message, Activity currentActivity, final IButtonEventListener listener) {
         try {
             final AlertDialog.Builder builder = new AlertDialog.Builder(currentActivity);
             builder.setMessage(message);
             builder.setCancelable(false);
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
+                    listener.onClickPositive();
                     dialog.cancel();
                 }
             });
