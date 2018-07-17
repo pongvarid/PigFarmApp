@@ -34,19 +34,195 @@
     </RelativeLayout>
 
 
-    <android.support.design.widget.NavigationView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <android.support.design.widget.NavigationView
+            android:layout_above="@+id/linearLayoutSaveProfile"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="24dp"
-            android:layout_marginStart="24dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="24dp"
+                android:layout_marginStart="24dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:gravity="center|start"
+                    android:paddingBottom="6dp"
+                    android:paddingTop="6dp"
+                    android:text="แก้ไขประวัติส่วนตัว"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/shape_edittext_gray_boarder"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:id="@+id/textViewName"
+                        android:layout_width="68dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center|start"
+                        android:text="ชื่อ" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/textViewName"
+                        android:background="@null"
+                        android:gravity="center|end"
+                        android:singleLine="true" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/shape_edittext_gray_boarder"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:id="@+id/textViewLastName"
+                        android:layout_width="68dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center|start"
+                        android:text="นามสกุล" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/textViewLastName"
+                        android:background="@null"
+                        android:gravity="center|end"
+                        android:singleLine="true" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:gravity="center|start"
+                    android:paddingBottom="6dp"
+                    android:paddingTop="6dp"
+                    android:text="แก้ไขรหัสผ่าน"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/shape_edittext_gray_boarder"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:id="@+id/textViewOldPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center|start"
+                        android:text="รหัสผ่านเก่า" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/textViewOldPassword"
+                        android:background="@null"
+                        android:gravity="center|end"
+                        android:singleLine="true" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/shape_edittext_gray_boarder"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:id="@+id/textViewNewPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center|start"
+                        android:text="รหัสผ่านใหม่" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/textViewNewPassword"
+                        android:background="@null"
+                        android:gravity="center|end"
+                        android:singleLine="true" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/shape_edittext_gray_boarder"
+                    android:padding="6dp">
+
+                    <TextView
+                        android:id="@+id/textViewConfirmNewPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center|start"
+                        android:text="ยืนยันรหัสผ่านใหม่" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@+id/textViewConfirmNewPassword"
+                        android:background="@null"
+                        android:gravity="center|end"
+                        android:singleLine="true" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </android.support.design.widget.NavigationView>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutSaveProfile"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="บันทึกการแก้ไข"
+                android:textColor="@color/color_white"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
-    </android.support.design.widget.NavigationView>
+    </RelativeLayout>
 
 </LinearLayout>
