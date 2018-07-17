@@ -137,6 +137,7 @@
                     android:text="@string/history_dob" />
 
                 <TextView
+                    android:id="@+id/textViewDisplayDOB"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_toEndOf="@+id/textViewDOB"
@@ -172,6 +173,7 @@
                     android:text="@string/history_import_to_farm" />
 
                 <TextView
+                    android:id="@+id/textViewDisplayImportToFarm"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_toEndOf="@+id/textViewDOBImportToFarm"
