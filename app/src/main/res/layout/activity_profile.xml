@@ -83,7 +83,6 @@
                         android:background="@null"
                         android:gravity="center|end"
                         android:singleLine="true" />
-
                 </RelativeLayout>
 
                 <RelativeLayout
