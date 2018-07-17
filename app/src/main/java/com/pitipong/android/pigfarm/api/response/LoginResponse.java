@@ -8,25 +8,18 @@ public class LoginResponse extends BaseResponse{
 
     @SerializedName("id")
     private String id;
-
     @SerializedName("name")
     private String name;
-
     @SerializedName("email")
     private String email;
-
     @SerializedName("username")
     private String username;
-
     @SerializedName("created_at")
     private String created_at;
-
     @SerializedName("updated_at")
     private String updated_at;
-
     @SerializedName("accessToken")
     private String accessToken;
-
     @SerializedName("roles")
     private List<RolesResponse> rolesResponse;
 

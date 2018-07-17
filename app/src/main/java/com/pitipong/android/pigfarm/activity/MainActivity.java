@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.widget.LinearLayout;
 
 import com.pitipong.android.pigfarm.R;
 import com.pitipong.android.pigfarm.adapter.ViewPagerAdapter;
+import com.pitipong.android.pigfarm.api.response.PigDataResponse;
 import com.pitipong.android.pigfarm.fragment.BreedFragment;
 import com.pitipong.android.pigfarm.fragment.HistoryFragment;
 import com.pitipong.android.pigfarm.fragment.MaternityFragment;
@@ -25,12 +27,16 @@ import com.pitipong.android.pigfarm.fragment.WeanFragment;
 import com.pitipong.android.pigfarm.helper.NonSwipeableViewPager;
 
 
+import org.parceler.Parcels;
+
 import static com.pitipong.android.pigfarm.dal.Constant.MENU_CHECK_DATA;
 import static com.pitipong.android.pigfarm.dal.Constant.MENU_INSERT_DATA;
 import static com.pitipong.android.pigfarm.dal.Constant.MENU_LIST;
 import static com.pitipong.android.pigfarm.dal.Constant.MENU_SETTING;
 
 public class MainActivity extends BaseActivity{
+
+    private static final String TAG = "MainActivity";
 
     TabLayout tabs;
     ViewPager viewPager;
@@ -64,7 +70,7 @@ public class MainActivity extends BaseActivity{
             }
         });
 
-        bindDataToView();
+        getPigDataFromParcel();
     }
 
     private void initFragment() {
@@ -90,8 +96,17 @@ public class MainActivity extends BaseActivity{
         tabs.setupWithViewPager(viewPager);
     }
 
+    private void getPigDataFromParcel(){
 
-    private void bindDataToView(){
+        Bundle bundle = getIntent().getExtras();
+        PigDataResponse pigData = Parcels.unwrap(bundle.getParcelable("PigData"));
+
+        Log.e(TAG, "getPigDataFromParcel: "+pigData );
+
+        bindDataToView(pigData);
+    }
+
+    private void bindDataToView(PigDataResponse pigData){
 
     }
 

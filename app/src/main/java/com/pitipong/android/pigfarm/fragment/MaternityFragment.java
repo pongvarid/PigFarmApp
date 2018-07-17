@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.pitipong.android.pigfarm.R;
 import com.pitipong.android.pigfarm.activity.BreedAddActivity;
+import com.pitipong.android.pigfarm.activity.MaternityAddActivity;
 
 public class MaternityFragment extends Fragment {
 
@@ -49,7 +50,7 @@ public class MaternityFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), BreedAddActivity.class));
+                startActivity(new Intent(getActivity(), MaternityAddActivity.class));
             }
         });
     }

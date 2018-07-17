@@ -2,12 +2,14 @@ package com.pitipong.android.pigfarm.api.response;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
 import java.util.List;
 
 /**
  * Created by pw on 14/5/2018 AD.
  */
-
+@Parcel
 public class BaseResponse {
 
     @SerializedName("message")

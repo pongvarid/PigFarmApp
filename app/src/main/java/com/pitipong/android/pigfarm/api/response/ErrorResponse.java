@@ -2,6 +2,9 @@ package com.pitipong.android.pigfarm.api.response;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class ErrorResponse {
 
     @SerializedName("email")
