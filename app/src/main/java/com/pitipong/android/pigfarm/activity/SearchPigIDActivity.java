@@ -31,6 +31,8 @@ import com.pitipong.android.pigfarm.helper.MessageBox;
 import com.pitipong.android.pigfarm.listener.IButtonEventListener;
 import com.pitipong.android.pigfarm.util.KeyboardHelper;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -83,7 +85,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
             @Override
             public void onClick(View v) {
                 if (edittextSearchID.getText().length() > 0){
-                    checkPathToGo();
+                    getPigData(edittextSearchID.getText().toString());
                 } else {
                     KeyboardHelper.showSoftKeyboard(edittextSearchID);
                 }
@@ -111,16 +113,20 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         }
     }
 
-    private void checkPathToGo() {
+    private void checkPathToGo(PigDataResponse pigDataResponse) {
         isSoundCard = getIntent().getExtras().getBoolean("isSoundCard");
+        Intent intent;
         if (isSoundCard) {
-            startActivity(new Intent(SearchPigIDActivity.this, SoundCardActivity.class));
+            intent = new Intent(SearchPigIDActivity.this, SoundCardActivity.class);
         } else {
-            startActivity(new Intent(SearchPigIDActivity.this, MainActivity.class));
+            intent = new Intent(SearchPigIDActivity.this, MainActivity.class);
         }
+        intent.putExtra("PigData", Parcels.wrap(pigDataResponse));
+        startActivity(intent);
     }
 
     private void getPigData(String pigID){
+        showLoadingProgress();
         Call<PigDataResponse> pigDataResponseCall = Api.getInstance(this).getService().getPigData(
                 "Bearer " +Application.pm.getAccessToken(),
                 APPLICATION_JSON,APPLICATION_JSON, pigID);
@@ -129,7 +135,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
             public void onResponse(Response<PigDataResponse> response, Retrofit retrofit) {
                 if (response.code() == 200){
                     if (response.body() != null){
-                        checkPathToGo();
+                        checkPathToGo(response.body());
                     } else {
                         MessageBox.getInstance().alertMessage("ไม่พบข้อมูล", SearchPigIDActivity.this, new IButtonEventListener() {
                             @Override
@@ -145,6 +151,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
                         });
                     }
                 }
+                dismissLoadingProgress();
             }
 
             @Override
@@ -161,7 +168,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
 
                     }
                 });
-
+                dismissLoadingProgress();
             }
         });
     }
