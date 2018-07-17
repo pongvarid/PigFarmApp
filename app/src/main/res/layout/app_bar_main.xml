@@ -43,13 +43,13 @@
                     android:textColor="@color/color_white"/>
 
                 <TextView
+                    android:id="@+id/textViewPigID"
                     android:layout_alignEnd="@+id/titleMain"
                     android:layout_alignParentEnd="true"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:paddingRight="8dp"
-                    android:text="ID : 000 - 000"
                     android:textColor="@color/color_white"
                     android:singleLine="true"
                     android:ellipsize="end"

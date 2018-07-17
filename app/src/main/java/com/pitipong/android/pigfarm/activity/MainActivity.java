@@ -46,13 +46,14 @@ public class MainActivity extends BaseActivity{
     TabLayout tabs;
     ViewPager viewPager;
     ImageView imageViewBack;
+    TextView textViewPigID;
 
     private HistoryFragment historyFragment;
     private BreedFragment breedFragment;
     private MaternityFragment maternityFragment;
     private WeanFragment weanFragment;
 
-    public PigDataResponse pigDataResponse;
+    public PigDataResponse pigData;
     ViewPagerAdapter adapter;
 
     private int mYear, mMonth, mDay, mHour, mMinute, mSecond;
@@ -70,6 +71,7 @@ public class MainActivity extends BaseActivity{
         imageViewBack = findViewById(R.id.imageViewBack);
         viewPager = findViewById(R.id.viewPager);
         tabs = findViewById(R.id.tabLayout);
+        textViewPigID = findViewById(R.id.textViewPigID);
 
         imageViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,13 +107,14 @@ public class MainActivity extends BaseActivity{
     }
 
     private void getPigDataFromParcel(){
-
         Bundle bundle = getIntent().getExtras();
-        PigDataResponse pigData = Parcels.unwrap(bundle.getParcelable("PigData"));
+        pigData = Parcels.unwrap(bundle.getParcelable("PigData"));
+
+        textViewPigID.setText("ID : "+pigData.getPigID());
 
         Log.e(TAG, "getPigDataFromParcel: "+pigData );
 
-        pigDataResponse = pigData;
+
     }
 
     @Override

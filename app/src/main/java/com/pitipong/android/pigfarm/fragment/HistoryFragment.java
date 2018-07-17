@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,11 @@ import com.pitipong.android.pigfarm.activity.MainActivity;
 
     private TextView textViewDisplayDOB, textViewDisplayImportToFarm;
     private ImageView imageViewCalendar, imageViewCalendarImportToFarm;
+    private EditText
+            edittextLeftBreast,
+            edittextRightBreast,
+            edittextMaleBreederPigID,
+            edittextFemaleBreederPigID;
 
     public HistoryFragment() {
         // Required empty public constructor
@@ -45,12 +51,30 @@ import com.pitipong.android.pigfarm.activity.MainActivity;
         imageViewCalendar = v.findViewById(R.id.imageViewCalendar);
         imageViewCalendarImportToFarm = v.findViewById(R.id.imageViewCalendarImportToFarm);
 
+        edittextLeftBreast = v.findViewById(R.id.edittextLeftBreast);
+        edittextRightBreast = v.findViewById(R.id.edittextRightBreast);
+        edittextMaleBreederPigID = v.findViewById(R.id.edittextMaleBreederPigID);
+        edittextFemaleBreederPigID = v.findViewById(R.id.edittextFemaleBreederPigID);
+
         textViewDisplayDOB = v.findViewById(R.id.textViewDisplayDOB);
         textViewDisplayImportToFarm = v.findViewById(R.id.textViewDisplayImportToFarm);
 
-        textViewDisplayDOB.setText(((MainActivity)getActivity()).pigDataResponse.getBirthDate());
-        textViewDisplayImportToFarm.setText(((MainActivity)getActivity()).pigDataResponse.getEntryDate());
+        bindDataToView();
+        initClickEvent();
+    }
 
+    private void bindDataToView(){
+        textViewDisplayDOB.setText(((MainActivity)getActivity()).pigData.getBirthDate());
+        textViewDisplayImportToFarm.setText(((MainActivity)getActivity()).pigData.getEntryDate());
+
+        edittextLeftBreast.setText(""+((MainActivity)getActivity()).pigData.getLeftBreast());
+        edittextRightBreast.setText(""+((MainActivity)getActivity()).pigData.getRightBreast());
+
+        edittextMaleBreederPigID.setText(((MainActivity)getActivity()).pigData.getMaleBreederPigID());
+        edittextFemaleBreederPigID.setText(((MainActivity)getActivity()).pigData.getFemaleBreederPigID());
+    }
+
+    private void initClickEvent(){
         imageViewCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

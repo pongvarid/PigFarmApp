@@ -47,10 +47,9 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
 
     private static final String TAG = "SearchPigIDActivity";
 
-    private FrameLayout cameraPreview;
+    FrameLayout cameraPreview;
     private EditText edittextSearchID;
     private ImageView imageViewBack, imageViewSearch;
-
 
     private boolean isSoundCard;
     private ZXingScannerView mScannerView;
@@ -70,7 +69,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         cameraPreview = findViewById(R.id.cameraPreview);
         edittextSearchID = findViewById(R.id.edittextSearchID);
 
-        mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view
+        mScannerView = new ZXingScannerView(SearchPigIDActivity.this);   // Programmatically initialize the scanner view
         cameraPreview.addView(mScannerView);
         setupUI(cameraPreview);
 
@@ -123,6 +122,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         }
         intent.putExtra("PigData", Parcels.wrap(pigDataResponse));
         startActivity(intent);
+        finish();
     }
 
     private void getPigData(String pigID){
@@ -191,6 +191,8 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         stopCamera();
         MessageBox.getInstance().dismissMessageBox();
     }
+
+
 
     public void startCamera() {
         mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.

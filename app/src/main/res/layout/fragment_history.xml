@@ -257,6 +257,7 @@
                     android:text="พ่อพันธุ์" />
 
                 <EditText
+                    android:id="@+id/edittextMaleBreederPigID"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
@@ -284,6 +285,7 @@
                     android:text="แม่พันธุ์" />
 
                 <EditText
+                    android:id="@+id/edittextFemaleBreederPigID"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
@@ -378,6 +380,7 @@
                         android:text="เต้านมซ้าย" />
 
                     <EditText
+                        android:id="@+id/edittextLeftBreast"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
@@ -405,6 +408,7 @@
                         android:text="เต้านมขวา" />
 
                     <EditText
+                        android:id="@+id/edittextRightBreast"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
