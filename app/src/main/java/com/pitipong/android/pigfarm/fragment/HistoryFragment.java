@@ -29,6 +29,7 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 import static com.pitipong.android.pigfarm.api.ServiceURL.APPLICATION_JSON;
+import static com.pitipong.android.pigfarm.api.ServiceURL.BEARER;
 
     public class HistoryFragment extends Fragment {
 
@@ -117,7 +118,7 @@ import static com.pitipong.android.pigfarm.api.ServiceURL.APPLICATION_JSON;
 
     private void postPigDataService(){
         Call<PigDataResponse> pigDataResponseCall = Api.getInstance(getActivity()).getService().postPigData(
-                "Bearer " + Application.pm.getAccessToken(),
+                BEARER + Application.pm.getAccessToken(),
                 APPLICATION_JSON,APPLICATION_JSON,
                 ((MainActivity)getActivity()).pigData.getId(),
                 new PigDataRequest(

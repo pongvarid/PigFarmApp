@@ -7,6 +7,7 @@ package com.pitipong.android.pigfarm.api;
 public class ServiceURL {
     public static final String URL_BASE = "http://mct.ict.up.ac.th:10005";
 
+    public static final String BEARER = "Bearer ";
     public static final String APPLICATION_JSON = "application/json";
     public static final String URL_LOGIN = "/api/auth/login";
     public static final String URL_PIG = "/api/farm/pigs";

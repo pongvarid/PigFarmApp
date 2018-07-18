@@ -42,6 +42,7 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 import static com.pitipong.android.pigfarm.api.ServiceURL.APPLICATION_JSON;
+import static com.pitipong.android.pigfarm.api.ServiceURL.BEARER;
 
 public class SearchPigIDActivity extends BaseActivity implements ZXingScannerView.ResultHandler {
 
@@ -73,6 +74,10 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         cameraPreview.addView(mScannerView);
         setupUI(cameraPreview);
 
+        initClickEvent();
+    }
+
+    private void initClickEvent(){
         imageViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -128,7 +133,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
     private void getPigData(String pigID){
         showLoadingProgress();
         Call<PigDataResponse> pigDataResponseCall = Api.getInstance(this).getService().getPigData(
-                "Bearer " +Application.pm.getAccessToken(),
+                BEARER + Application.pm.getAccessToken(),
                 APPLICATION_JSON,APPLICATION_JSON, pigID);
         pigDataResponseCall.enqueue(new Callback<PigDataResponse>() {
             @Override
