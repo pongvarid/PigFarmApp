@@ -4,54 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="@color/color_white"
+    android:fitsSystemWindows="true"
     tools:context=".activity.MaternityAddActivity">
 
     <RelativeLayout
         android:id="@+id/toolbarAddMaternity"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        android:layout_alignParentTop="true"
         android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/imageViewBack"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_arrow_back"
+            android:paddingEnd="16dp"
             android:paddingStart="16dp"
-            android:paddingEnd="16dp"/>
+            android:src="@drawable/ic_arrow_back" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:textSize="18sp"
-            android:text="เพิ่มข้อมูลการคลอด"
-            android:textColor="@color/color_white"
             android:layout_centerInParent="true"
             android:gravity="center"
-            />
+            android:text="เพิ่มข้อมูลการคลอด"
+            android:textColor="@color/color_white"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_below="@id/toolbarAddMaternity"
-        android:layout_above="@id/linearLayoutSaveMaternityAdd"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp">
+        android:layout_above="@id/linearLayoutSaveMaternityAdd"
+        android:layout_below="@id/toolbarAddMaternity">
 
-        <include layout="@layout/list_item_maternity" />
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/list_item_maternity" />
+
+        </android.support.v4.widget.NestedScrollView>
 
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearLayoutSaveMaternityAdd"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary">
 
         <TextView
