@@ -76,6 +76,7 @@
                         android:text="ชื่อ" />
 
                     <EditText
+                        android:id="@+id/edittextName"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"
@@ -102,6 +103,7 @@
                         android:text="นามสกุล" />
 
                     <EditText
+                        android:id="@+id/edittextLastName"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"
@@ -138,6 +140,7 @@
                         android:text="รหัสผ่านเก่า" />
 
                     <EditText
+                        android:id="@+id/edittextOldPassword"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"
@@ -165,6 +168,7 @@
                         android:text="รหัสผ่านใหม่" />
 
                     <EditText
+                        android:id="@+id/edittextNewPassword"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"
@@ -192,6 +196,7 @@
                         android:text="ยืนยันรหัสผ่านใหม่" />
 
                     <EditText
+                        android:id="@+id/edittextConfirmNewPassword"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"
