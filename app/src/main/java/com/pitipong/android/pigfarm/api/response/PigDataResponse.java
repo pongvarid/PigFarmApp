@@ -31,8 +31,8 @@ public class PigDataResponse extends BaseResponse {
     private int leftBreast;
     @SerializedName("right_breast")
     private int rightBreast;
-    @SerializedName("blood_line")
-    private BloodLineModel bloodLineModel;
+//    @SerializedName("blood_line")
+//    private BloodLineModel bloodLineModel;
     @SerializedName("status")
     private int status;
     @SerializedName("created_at")
@@ -124,13 +124,13 @@ public class PigDataResponse extends BaseResponse {
         this.rightBreast = rightBreast;
     }
 
-    public BloodLineModel getBloodLineModel() {
-        return bloodLineModel;
-    }
-
-    public void setBloodLineModel(BloodLineModel bloodLineModel) {
-        this.bloodLineModel = bloodLineModel;
-    }
+//    public BloodLineModel getBloodLineModel() {
+//        return bloodLineModel;
+//    }
+//
+//    public void setBloodLineModel(BloodLineModel bloodLineModel) {
+//        this.bloodLineModel = bloodLineModel;
+//    }
 
     public int getStatus() {
         return status;

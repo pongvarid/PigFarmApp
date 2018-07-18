@@ -138,4 +138,12 @@ public class MainActivity extends BaseActivity{
                 }, mYear, mMonth, mDay);
         datePickerDialog.show();
     }
+
+    public void showProgressFromActivity(){
+        showLoadingProgress();
+    }
+
+    public void dismissProgressFromActivity(){
+        dismissLoadingProgress();
+    }
 }

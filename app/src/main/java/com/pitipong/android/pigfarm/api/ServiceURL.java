@@ -9,6 +9,6 @@ public class ServiceURL {
 
     public static final String APPLICATION_JSON = "application/json";
     public static final String URL_LOGIN = "/api/auth/login";
-    public static final String URL_GET_PIG = "/api/farm/pigs";
+    public static final String URL_PIG = "/api/farm/pigs";
 
 }
