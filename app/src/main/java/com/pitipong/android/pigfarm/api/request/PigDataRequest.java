@@ -26,8 +26,15 @@ public class PigDataRequest{
     private int leftBreast;
     @SerializedName("right_breast")
     private int rightBreast;
+    @SerializedName("source")
+    private String source;
+    @SerializedName("blood_line")
+    private String bloodLine;
 
-    public PigDataRequest(String pigID, String birthDate, String entryDate, String maleBreederPigID, String femaleBreederPigID, int leftBreast, int rightBreast) {
+    public PigDataRequest(
+            String pigID, String birthDate, String entryDate,
+            String maleBreederPigID, String femaleBreederPigID,
+            int leftBreast, int rightBreast, String source, String bloodLine) {
         this.pigID = pigID;
         this.birthDate = birthDate;
         this.entryDate = entryDate;
@@ -35,5 +42,8 @@ public class PigDataRequest{
         this.femaleBreederPigID = femaleBreederPigID;
         this.leftBreast = leftBreast;
         this.rightBreast = rightBreast;
+        this.source = source;
+        this.bloodLine = bloodLine;
     }
+
 }

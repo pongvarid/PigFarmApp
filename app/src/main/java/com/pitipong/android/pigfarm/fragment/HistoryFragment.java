@@ -1,5 +1,6 @@
     package com.pitipong.android.pigfarm.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,7 +40,10 @@ import static com.pitipong.android.pigfarm.api.ServiceURL.BEARER;
             edittextLeftBreast,
             edittextRightBreast,
             edittextMaleBreederPigID,
-            edittextFemaleBreederPigID;
+            edittextFemaleBreederPigID,
+            edittextSources,
+            edittextNumberOfEar,
+            edittextBloodLine;
     private LinearLayout linearLayoutSaveHistoryl;
 
     public HistoryFragment() {
@@ -73,6 +77,9 @@ import static com.pitipong.android.pigfarm.api.ServiceURL.BEARER;
         edittextRightBreast = v.findViewById(R.id.edittextRightBreast);
         edittextMaleBreederPigID = v.findViewById(R.id.edittextMaleBreederPigID);
         edittextFemaleBreederPigID = v.findViewById(R.id.edittextFemaleBreederPigID);
+        edittextSources = v.findViewById(R.id.edittextSources);
+        edittextNumberOfEar = v.findViewById(R.id.edittextNumberOfEar);
+        edittextBloodLine = v.findViewById(R.id.edittextBloodLine);
 
         textViewDisplayDOB = v.findViewById(R.id.textViewDisplayDOB);
         textViewDisplayImportToFarm = v.findViewById(R.id.textViewDisplayImportToFarm);
@@ -83,15 +90,19 @@ import static com.pitipong.android.pigfarm.api.ServiceURL.BEARER;
         initClickEvent();
     }
 
+    @SuppressLint("SetTextI18n")
     private void bindDataToView(){
-        textViewDisplayDOB.setText(((MainActivity)getActivity()).pigData.getBirthDate());
+        textViewDisplayDOB.setText(""+((MainActivity)getActivity()).pigData.getBirthDate());
         textViewDisplayImportToFarm.setText(((MainActivity)getActivity()).pigData.getEntryDate());
 
+        edittextSources.setText(""+((MainActivity)getActivity()).pigData.getSource());
         edittextLeftBreast.setText(""+((MainActivity)getActivity()).pigData.getLeftBreast());
         edittextRightBreast.setText(""+((MainActivity)getActivity()).pigData.getRightBreast());
+        edittextMaleBreederPigID.setText(""+((MainActivity)getActivity()).pigData.getMaleBreederPigID());
+        edittextFemaleBreederPigID.setText(""+((MainActivity)getActivity()).pigData.getFemaleBreederPigID());
 
-        edittextMaleBreederPigID.setText(((MainActivity)getActivity()).pigData.getMaleBreederPigID());
-        edittextFemaleBreederPigID.setText(((MainActivity)getActivity()).pigData.getFemaleBreederPigID());
+        edittextNumberOfEar.setText(""+((MainActivity)getActivity()).pigData.getPigNumber());
+        edittextBloodLine.setText(""+((MainActivity)getActivity()).pigData.getBloodLine());
     }
 
     private void initClickEvent(){
@@ -128,7 +139,9 @@ import static com.pitipong.android.pigfarm.api.ServiceURL.BEARER;
                         edittextMaleBreederPigID.getText().toString(),
                         edittextFemaleBreederPigID.getText().toString(),
                         Integer.parseInt(edittextLeftBreast.getText().toString()),
-                        Integer.parseInt(edittextRightBreast.getText().toString())));
+                        Integer.parseInt(edittextRightBreast.getText().toString()),
+                        edittextSources.getText().toString(),
+                        edittextBloodLine.getText().toString()));
         pigDataResponseCall.enqueue(new Callback<PigDataResponse>() {
             @Override
             public void onResponse(Response<PigDataResponse> response, Retrofit retrofit) {
@@ -139,7 +152,8 @@ import static com.pitipong.android.pigfarm.api.ServiceURL.BEARER;
                         MessageBox.getInstance().alertMessage(response.body().getMessage(), getActivity(), new IButtonEventListener() {
                             @Override
                             public void onClickPositive() {
-
+                                Toast.makeText( getActivity(),
+                                        "Try to Toast for make sure it worked", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override

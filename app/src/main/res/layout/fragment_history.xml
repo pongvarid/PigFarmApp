@@ -223,12 +223,15 @@
                     android:gravity="center"
                     android:text="แหล่งที่มา" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/edittextSources"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toEndOf="@+id/textViewFromWhere"
                     android:layout_toStartOf="@+id/imageViewArrowDown"
-                    android:gravity="center|end" />
+                    android:background="@null"
+                    android:gravity="center|end"
+                    android:singleLine="true"  />
 
                 <ImageView
                     android:id="@+id/imageViewArrowDown"
@@ -236,7 +239,8 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:paddingStart="16dp"
-                    android:src="@drawable/ic_arrow_down" />
+                    android:src="@drawable/ic_arrow_down"
+                    android:visibility="gone"/>
 
             </RelativeLayout>
 
@@ -313,6 +317,7 @@
                     android:text="เบอร์หู" />
 
                 <EditText
+                    android:id="@+id/edittextNumberOfEar"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
@@ -340,12 +345,14 @@
                     android:gravity="center"
                     android:text="สายพันธุ์" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/edittextBloodLine"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toEndOf="@+id/textViewBreed"
                     android:layout_toStartOf="@+id/imageViewArrowDownBreed"
-                    android:gravity="center|end" />
+                    android:gravity="center|end"
+                    android:background="@null"/>
 
                 <ImageView
                     android:id="@+id/imageViewArrowDownBreed"
@@ -353,7 +360,8 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:paddingStart="16dp"
-                    android:src="@drawable/ic_arrow_down" />
+                    android:src="@drawable/ic_arrow_down"
+                    android:visibility="gone"/>
 
             </RelativeLayout>
 

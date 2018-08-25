@@ -1,7 +1,6 @@
 package com.pitipong.android.pigfarm.api.response;
 
 import com.google.gson.annotations.SerializedName;
-import com.pitipong.android.pigfarm.model.BloodLineModel;
 import com.pitipong.android.pigfarm.model.CycleModel;
 
 import org.parceler.Parcel;
@@ -31,10 +30,10 @@ public class PigDataResponse extends BaseResponse {
     private int leftBreast;
     @SerializedName("right_breast")
     private int rightBreast;
-//    @SerializedName("blood_line")
-//    private BloodLineModel bloodLineModel;
+    @SerializedName("blood_line")
+    private String bloodLine;
     @SerializedName("status")
-    private int status;
+    private String status;
     @SerializedName("created_at")
     private String createdAt;
     @SerializedName("updated_at")
@@ -125,18 +124,27 @@ public class PigDataResponse extends BaseResponse {
     }
 
 //    public BloodLineModel getBloodLineModel() {
-//        return bloodLineModel;
+//        return bloodLine;
 //    }
 //
-//    public void setBloodLineModel(BloodLineModel bloodLineModel) {
-//        this.bloodLineModel = bloodLineModel;
+//    public void setBloodLineModel(BloodLineModel bloodLine) {
+//        this.bloodLine = bloodLine;
 //    }
 
-    public int getStatus() {
+
+    public String getBloodLine() {
+        return bloodLine;
+    }
+
+    public void setBloodLine(String bloodLine) {
+        this.bloodLine = bloodLine;
+    }
+
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

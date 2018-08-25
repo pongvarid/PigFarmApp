@@ -113,8 +113,6 @@ public class MainActivity extends BaseActivity{
         textViewPigID.setText("ID : "+pigData.getPigID());
 
         Log.e(TAG, "getPigDataFromParcel: "+pigData );
-
-
     }
 
     @Override
