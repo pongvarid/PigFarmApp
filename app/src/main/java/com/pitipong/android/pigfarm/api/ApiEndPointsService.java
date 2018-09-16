@@ -4,7 +4,12 @@ package com.pitipong.android.pigfarm.api;
 import com.pitipong.android.pigfarm.api.request.LoginRequest;
 import com.pitipong.android.pigfarm.api.request.PigDataRequest;
 import com.pitipong.android.pigfarm.api.response.LoginResponse;
+import com.pitipong.android.pigfarm.api.response.PigBreederResponse;
 import com.pitipong.android.pigfarm.api.response.PigDataResponse;
+import com.pitipong.android.pigfarm.api.response.PigListResponse;
+
+import java.lang.reflect.Array;
+import java.util.List;
 
 import retrofit.Call;
 import retrofit.http.Body;
@@ -13,9 +18,11 @@ import retrofit.http.PATCH;
 import retrofit.http.POST;
 import retrofit.http.GET;
 import retrofit.http.Path;
+import retrofit.http.Query;
 
 import static com.pitipong.android.pigfarm.api.ServiceURL.URL_PIG;
 import static com.pitipong.android.pigfarm.api.ServiceURL.URL_LOGIN;
+import static com.pitipong.android.pigfarm.api.ServiceURL.URL_PIG_BREEDER;
 import static com.pitipong.android.pigfarm.dal.Constant.ACCEPT;
 import static com.pitipong.android.pigfarm.dal.Constant.AUTHORIZATION;
 import static com.pitipong.android.pigfarm.dal.Constant.CONTENT_TYPE;
@@ -47,20 +54,44 @@ public interface ApiEndPointsService {
     Call<LoginResponse> postLogin(
             @Body LoginRequest loginRequest);
 
-    @GET(URL_PIG +"/{id}")
+    @GET(URL_PIG + "/{id}")
     Call<PigDataResponse> getPigData(
             @Header(AUTHORIZATION) String authorization,
             @Header(ACCEPT) String accept,
             @Header(CONTENT_TYPE) String contentType,
             @Path("id") String id);
 
-    @PATCH(URL_PIG +"/{id}")
+    @PATCH(URL_PIG + "/{id}")
     Call<PigDataResponse> postPigData(
             @Header(AUTHORIZATION) String authorization,
             @Header(ACCEPT) String accept,
             @Header(CONTENT_TYPE) String contentType,
             @Path("id") String id,
             @Body PigDataRequest pigDataRequest);
+
+    @GET(URL_PIG)
+    Call<PigListResponse> getPigList(
+            @Header(AUTHORIZATION) String authorization,
+            @Header(ACCEPT) String accept,
+            @Header(CONTENT_TYPE) String contentType,
+            @Query("keyword") String keyword,
+            @Query("page") String page
+    );
+
+    @GET(URL_PIG + "/{id}")
+    Call<PigBreederResponse> getPigBreeder(
+            @Header(AUTHORIZATION) String authorization,
+            @Header(ACCEPT) String accept,
+            @Header(CONTENT_TYPE) String contentType,
+            @Path("id") String id,
+            @Query("cycles") String cycles,
+            @Query("cycles.breeders") String cycles_breeders,
+            @Query("cycles.birth") String cycles_birth,
+            @Query("cycles.milk") String cycles_milk,
+            @Query("cycles.vaccine") String cycles_vaccine,
+            @Query("cycles.feed") String cycles_feed,
+            @Query("cycles.feedout") String cycles_feedout
+    );
 
 //
 //    // Upload Image and PDF file

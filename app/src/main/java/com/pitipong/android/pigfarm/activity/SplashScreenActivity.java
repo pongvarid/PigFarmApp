@@ -16,7 +16,9 @@ public class SplashScreenActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+//        Application.pm.setIsLogin(true);
         intentToActivity();
+//        Application.pm.setAccessToken(URL_FIX_TOKEN);
     }
 
     private void intentToActivity(){
