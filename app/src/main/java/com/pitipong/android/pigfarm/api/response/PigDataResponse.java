@@ -1,7 +1,11 @@
 package com.pitipong.android.pigfarm.api.response;
 
+import android.os.AsyncTask;
+
 import com.google.gson.annotations.SerializedName;
+import com.pitipong.android.pigfarm.model.BreedersModel;
 import com.pitipong.android.pigfarm.model.CycleModel;
+import com.pitipong.android.pigfarm.model.StatusModel;
 
 import org.parceler.Parcel;
 
@@ -42,6 +46,10 @@ public class PigDataResponse extends BaseResponse {
     private String deletedAt;
     @SerializedName("cycles")
     private List<CycleModel> cycleModel;
+//    @SerializedName("status")
+//    private StatusModel statusModel;
+    @SerializedName("breeders")
+    private BreedersModel breedersModel;
 
     public String getId() {
         return id;
@@ -178,5 +186,21 @@ public class PigDataResponse extends BaseResponse {
 
     public void setCycleModel(List<CycleModel> cycleModel) {
         this.cycleModel = cycleModel;
+    }
+
+//    public StatusModel getStatusModel() {
+//        return statusModel;
+//    }
+//
+//    public void setStatusModel(StatusModel statusModel) {
+//        this.statusModel = statusModel;
+//    }
+
+    public BreedersModel getBreedersModel() {
+        return breedersModel;
+    }
+
+    public void setBreedersModel(BreedersModel breedersModel) {
+        this.breedersModel = breedersModel;
     }
 }

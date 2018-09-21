@@ -64,7 +64,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         requestPermissions();
     }
 
-    private void initView(){
+    private void initView() {
         imageViewBack = findViewById(R.id.imageViewBack);
         imageViewSearch = findViewById(R.id.imageViewSearch);
         cameraPreview = findViewById(R.id.cameraPreview);
@@ -77,7 +77,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         initClickEvent();
     }
 
-    private void initClickEvent(){
+    private void initClickEvent() {
         imageViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,7 +88,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         imageViewSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edittextSearchID.getText().length() > 0){
+                if (edittextSearchID.getText().length() > 0) {
                     getPigData(edittextSearchID.getText().toString());
                 } else {
                     KeyboardHelper.showSoftKeyboard(edittextSearchID);
@@ -102,7 +102,7 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         if (!(view instanceof EditText)) {
             view.setOnTouchListener(new View.OnTouchListener() {
                 public boolean onTouch(View v, MotionEvent event) {
-                   KeyboardHelper.hideKeyboard(SearchPigIDActivity.this, view);
+                    KeyboardHelper.hideKeyboard(SearchPigIDActivity.this, view);
                     return false;
                 }
             });
@@ -130,16 +130,16 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         finish();
     }
 
-    private void getPigData(String pigID){
+    private void getPigData(String pigID) {
         showLoadingProgress();
         Call<PigDataResponse> pigDataResponseCall = Api.getInstance(this).getService().getPigData(
                 BEARER + Application.pm.getAccessToken(),
-                APPLICATION_JSON,APPLICATION_JSON, pigID);
+                APPLICATION_JSON, APPLICATION_JSON, pigID);
         pigDataResponseCall.enqueue(new Callback<PigDataResponse>() {
             @Override
             public void onResponse(Response<PigDataResponse> response, Retrofit retrofit) {
-                if (response.code() == 200){
-                    if (response.body() != null){
+                if (response.code() == 200) {
+                    if (response.body() != null) {
                         checkPathToGo(response.body());
                     } else {
                         MessageBox.getInstance().alertMessage("ไม่พบข้อมูล", SearchPigIDActivity.this, new IButtonEventListener() {
@@ -197,8 +197,6 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         MessageBox.getInstance().dismissMessageBox();
     }
 
-
-
     public void startCamera() {
         mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.
         mScannerView.startCamera();
@@ -214,21 +212,21 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
         getPigData(result.getText().toString());
     }
 
-    private void requestPermissions(){
+    private void requestPermissions() {
         Dexter.withActivity(this)
                 .withPermissions(
                         Manifest.permission.CAMERA
                 ).withListener(new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport report) {
-                if(report.areAllPermissionsGranted()){
+                if (report.areAllPermissionsGranted()) {
                     startCamera();
                 }
-                if(report.getDeniedPermissionResponses().size() > 0){
+                if (report.getDeniedPermissionResponses().size() > 0) {
                     Log.d(TAG, "onPermissionDenied");
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        if(!shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)){
-                            if(Application.pm.getIS_PERMISSIONS_RATIONALE_CAMERA()){
+                        if (!shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
+                            if (Application.pm.getIS_PERMISSIONS_RATIONALE_CAMERA()) {
                                 MessageBox.getInstance().alertMessageWithLaterButton("Please allow permission before using the app", SearchPigIDActivity.this, new IButtonEventListener() {
                                     @Override
                                     public void onClickPositive() {
@@ -255,7 +253,8 @@ public class SearchPigIDActivity extends BaseActivity implements ZXingScannerVie
                 }
             }
 
-            @Override public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
                 Log.d(TAG, "onPermissionRationaleShouldBeShown");
                 token.continuePermissionRequest();
                 Application.pm.setIS_PERMISSIONS_RATIONALE_CAMERA(false);
