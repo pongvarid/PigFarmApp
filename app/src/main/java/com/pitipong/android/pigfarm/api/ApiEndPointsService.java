@@ -78,20 +78,14 @@ public interface ApiEndPointsService {
             @Query("page") String page
     );
 
-    @GET(URL_PIG + "/{id}")
-    Call<PigBreederResponse> getPigBreeder(
+    @GET(URL_PIG + "/{id}/cycles")
+    Call<List<PigBreederResponse>> getPigBreeder(
             @Header(AUTHORIZATION) String authorization,
             @Header(ACCEPT) String accept,
             @Header(CONTENT_TYPE) String contentType,
-            @Path("id") String id,
-            @Query("cycles") String cycles,
-            @Query("cycles.breeders") String cycles_breeders,
-            @Query("cycles.birth") String cycles_birth,
-            @Query("cycles.milk") String cycles_milk,
-            @Query("cycles.vaccine") String cycles_vaccine,
-            @Query("cycles.feed") String cycles_feed,
-            @Query("cycles.feedout") String cycles_feedout
+            @Path("id") String id
     );
+
 
 //
 //    // Upload Image and PDF file

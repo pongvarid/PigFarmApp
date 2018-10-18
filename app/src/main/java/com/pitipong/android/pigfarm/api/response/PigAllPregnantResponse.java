@@ -1,22 +1,20 @@
 package com.pitipong.android.pigfarm.api.response;
 
-import org.parceler.Parcel;
-
 import java.util.List;
 
-@Parcel
-public class PigBreederResponse {
+public class PigAllPregnantResponse {
+
 
     /**
-     * id : 888
-     * cycle_sequence : 1
-     * pig_id : 867
-     * complete : 2
-     * remark :
-     * created_at : 2018-09-18 10:17:22
-     * updated_at : 2018-09-18 10:17:34
+     * id : 1
+     * cycle_sequence : 4
+     * pig_id : 1
+     * complete : null
+     * remark : null
+     * created_at : 2018-08-31 13:23:45
+     * updated_at : 2018-08-31 13:23:45
      * deleted_at : null
-     * breeders : [{"id":888,"pig_cycle_id":888,"pig_id":"867","breeder_a":"2","breeder_b":"3","breeder_c":"3","breed_date":"20-09-2561","delivery_date":"14-01-2562","breed_week":16,"gravid":0,"gravid_date":null,"gravid_out":null,"gravid_out_remark":null,"gravid_remark":null,"created_at":"2018-09-18 10:17:33","updated_at":"2018-09-18 10:17:33"}]
+     * breeders : [{"id":1,"pig_cycle_id":1,"pig_id":null,"breeder_a":"CP30","breeder_b":"CP18","breeder_c":null,"breed_date":"2018-04-01 00:00:00","delivery_date":"2018-07-26 13:23:45","breed_week":13,"gravid":0,"gravid_date":null,"gravid_out":null,"gravid_out_remark":null,"gravid_remark":null,"created_at":"2018-08-31 13:23:45","updated_at":"2018-08-31 13:23:45"}]
      * birth : []
      * feed : []
      * feedout : []
@@ -26,13 +24,16 @@ public class PigBreederResponse {
     private int id;
     private int cycle_sequence;
     private int pig_id;
-    private int complete;
-    private String remark;
+    private Object complete;
+    private Object remark;
     private String created_at;
     private String updated_at;
-    private String deleted_at;
+    private Object deleted_at;
     private List<BreedersBean> breeders;
-
+    private List<?> birth;
+    private List<?> feed;
+    private List<?> feedout;
+    private List<?> milk;
 
     public int getId() {
         return id;
@@ -58,19 +59,19 @@ public class PigBreederResponse {
         this.pig_id = pig_id;
     }
 
-    public int getComplete() {
+    public Object getComplete() {
         return complete;
     }
 
-    public void setComplete(int complete) {
+    public void setComplete(Object complete) {
         this.complete = complete;
     }
 
-    public String getRemark() {
+    public Object getRemark() {
         return remark;
     }
 
-    public void setRemark(String remark) {
+    public void setRemark(Object remark) {
         this.remark = remark;
     }
 
@@ -90,11 +91,11 @@ public class PigBreederResponse {
         this.updated_at = updated_at;
     }
 
-    public String getDeleted_at() {
+    public Object getDeleted_at() {
         return deleted_at;
     }
 
-    public void setDeleted_at(String deleted_at) {
+    public void setDeleted_at(Object deleted_at) {
         this.deleted_at = deleted_at;
     }
 
@@ -106,41 +107,72 @@ public class PigBreederResponse {
         this.breeders = breeders;
     }
 
-    @Parcel
+    public List<?> getBirth() {
+        return birth;
+    }
+
+    public void setBirth(List<?> birth) {
+        this.birth = birth;
+    }
+
+    public List<?> getFeed() {
+        return feed;
+    }
+
+    public void setFeed(List<?> feed) {
+        this.feed = feed;
+    }
+
+    public List<?> getFeedout() {
+        return feedout;
+    }
+
+    public void setFeedout(List<?> feedout) {
+        this.feedout = feedout;
+    }
+
+    public List<?> getMilk() {
+        return milk;
+    }
+
+    public void setMilk(List<?> milk) {
+        this.milk = milk;
+    }
+
     public static class BreedersBean {
         /**
-         * id : 888
-         * pig_cycle_id : 888
-         * pig_id : 867
-         * breeder_a : 2
-         * breeder_b : 3
-         * breeder_c : 3
-         * breed_date : 20-09-2561
-         * delivery_date : 14-01-2562
-         * breed_week : 16
+         * id : 1
+         * pig_cycle_id : 1
+         * pig_id : null
+         * breeder_a : CP30
+         * breeder_b : CP18
+         * breeder_c : null
+         * breed_date : 2018-04-01 00:00:00
+         * delivery_date : 2018-07-26 13:23:45
+         * breed_week : 13
          * gravid : 0
          * gravid_date : null
          * gravid_out : null
          * gravid_out_remark : null
          * gravid_remark : null
-         * created_at : 2018-09-18 10:17:33
-         * updated_at : 2018-09-18 10:17:33
+         * created_at : 2018-08-31 13:23:45
+         * updated_at : 2018-08-31 13:23:45
          */
 
         private int id;
         private int pig_cycle_id;
-        private String pig_id;
+        private Object pig_id;
         private String breeder_a;
         private String breeder_b;
-        private String breeder_c;
+        private Object breeder_c;
         private String breed_date;
         private String delivery_date;
         private int breed_week;
         private int gravid;
-        private String gravid_date;
-        private String gravid_out;
-        private String gravid_out_remark;
-        private String gravid_remark;
+        private Object gravid_date;
+        private Object gravid_out;
+        private Object gravid_out_remark;
+        private Object gravid_remark;
         private String created_at;
         private String updated_at;
 
@@ -160,11 +192,11 @@ public class PigBreederResponse {
             this.pig_cycle_id = pig_cycle_id;
         }
 
-        public String getPig_id() {
+        public Object getPig_id() {
             return pig_id;
         }
 
-        public void setPig_id(String pig_id) {
+        public void setPig_id(Object pig_id) {
             this.pig_id = pig_id;
         }
 
@@ -184,11 +216,11 @@ public class PigBreederResponse {
             this.breeder_b = breeder_b;
         }
 
-        public String getBreeder_c() {
+        public Object getBreeder_c() {
             return breeder_c;
         }
 
-        public void setBreeder_c(String breeder_c) {
+        public void setBreeder_c(Object breeder_c) {
             this.breeder_c = breeder_c;
         }
 
@@ -224,35 +256,35 @@ public class PigBreederResponse {
             this.gravid = gravid;
         }
 
-        public String getGravid_date() {
+        public Object getGravid_date() {
             return gravid_date;
         }
 
-        public void setGravid_date(String gravid_date) {
+        public void setGravid_date(Object gravid_date) {
             this.gravid_date = gravid_date;
         }
 
-        public String getGravid_out() {
+        public Object getGravid_out() {
             return gravid_out;
         }
 
-        public void setGravid_out(String gravid_out) {
+        public void setGravid_out(Object gravid_out) {
             this.gravid_out = gravid_out;
         }
 
-        public String getGravid_out_remark() {
+        public Object getGravid_out_remark() {
             return gravid_out_remark;
         }
 
-        public void setGravid_out_remark(String gravid_out_remark) {
+        public void setGravid_out_remark(Object gravid_out_remark) {
             this.gravid_out_remark = gravid_out_remark;
         }
 
-        public String getGravid_remark() {
+        public Object getGravid_remark() {
             return gravid_remark;
         }
 
-        public void setGravid_remark(String gravid_remark) {
+        public void setGravid_remark(Object gravid_remark) {
             this.gravid_remark = gravid_remark;
         }
 

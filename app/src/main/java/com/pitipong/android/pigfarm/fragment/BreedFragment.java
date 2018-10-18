@@ -8,14 +8,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.pitipong.android.pigfarm.Application;
 import com.pitipong.android.pigfarm.R;
-import com.pitipong.android.pigfarm.activity.BreedAddActivity;
+import com.pitipong.android.pigfarm.activity.BreedCreateAndEditActivity;
 import com.pitipong.android.pigfarm.activity.MainActivity;
+import com.pitipong.android.pigfarm.adapter.BreederAdapter;
 import com.pitipong.android.pigfarm.api.Api;
 import com.pitipong.android.pigfarm.api.response.PigBreederResponse;
-import com.pitipong.android.pigfarm.api.response.PigListResponse;
+import com.pitipong.android.pigfarm.listener.IBreederClickEvent;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -32,6 +38,12 @@ public class BreedFragment extends Fragment {
     private static final String TAG = "BreedFragment";
 
     public FloatingActionButton fab;
+
+    private List<PigBreederResponse> pigBreederResponses;
+    private BreederAdapter breederAdapter;
+
+    private TextView textViewDataNotFound;
+    private ListView listViewBreeder;
 
     public BreedFragment() {
         // Required empty public constructor
@@ -57,34 +69,60 @@ public class BreedFragment extends Fragment {
         return view;
     }
 
-    private void initView(View view){
+    private void initView(View view) {
         fab = view.findViewById(R.id.fab);
+        textViewDataNotFound = view.findViewById(R.id.textViewDataNotFound);
+        listViewBreeder = view.findViewById(R.id.listViewBreeder);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), BreedAddActivity.class));
+                startActivity(new Intent(getActivity(), BreedCreateAndEditActivity.class));
             }
         });
     }
 
-    private void getPigBreederList(){
-        Call<PigBreederResponse> pigList = Api.getInstance(getActivity()).getService().getPigBreeder(
+    private void getPigBreederList() {
+        Call<List<PigBreederResponse>> pigList = Api.getInstance(getActivity()).getService().getPigBreeder(
                 BEARER + Application.pm.getAccessToken(),
-                APPLICATION_JSON,APPLICATION_JSON,
-                ((MainActivity)getActivity()).pigData.getPigID(),
-                "","","","","",
-                "","");
-        pigList.enqueue(new Callback<PigBreederResponse>() {
+                APPLICATION_JSON, APPLICATION_JSON,
+                ((MainActivity) getActivity()).pigData.getId());
+        pigList.enqueue(new Callback<List<PigBreederResponse>>() {
             @Override
-            public void onResponse(Response<PigBreederResponse> response, Retrofit retrofit) {
-                Log.e(TAG, "onResponse: test" );
+            public void onResponse(Response<List<PigBreederResponse>> response, Retrofit retrofit) {
+                Log.e(TAG, "onResponse: test");
+                pigBreederResponses = response.body();
+                if (response.body().size() != 0){
+                    hasData(true);
+                    breederAdapter = new BreederAdapter(getActivity(), pigBreederResponses, new IBreederClickEvent() {
+                        @Override
+                        public void onClickItem(int position) {
+                            Intent intent = new Intent(getActivity(), BreedCreateAndEditActivity.class);
+                            intent.putExtra("PigBreeder", Parcels.wrap(pigBreederResponses));
+                            intent.putExtra("position", position);
+                            startActivity(intent);
+                        }
+                    });
+                    listViewBreeder.setAdapter(breederAdapter);
+                } else {
+                    hasData(false);
+                }
             }
 
             @Override
             public void onFailure(Throwable t) {
-                Log.e(TAG, "onFailure: " );
+                Log.e(TAG, "onFailure: ");
             }
         });
+    }
+
+    private void hasData(boolean hasData) {
+        if (hasData) {
+            textViewDataNotFound.setVisibility(View.GONE);
+            listViewBreeder.setVisibility(View.VISIBLE);
+        } else {
+            textViewDataNotFound.setVisibility(View.VISIBLE);
+            listViewBreeder.setVisibility(View.GONE);
+        }
     }
 }

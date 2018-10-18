@@ -8,6 +8,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <TextView
+        android:id="@+id/textViewDataNotFound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -15,11 +16,12 @@
         android:text="ไม่พบข้อมูล"
         android:paddingBottom="48dp"/>
 
-    <android.support.v7.widget.RecyclerView
+    <ListView
+        android:id="@+id/listViewBreeder"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    </ListView>
 
     <!--<LinearLayout-->
         <!--android:id="@+id/linearLayoutSaveBreed"-->

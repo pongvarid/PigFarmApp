@@ -5,12 +5,12 @@ package com.pitipong.android.pigfarm.api;
  */
 
 public class ServiceURL {
-    public static final String URL_BASE = "http://mct.ict.up.ac.th:10005/api";
+    public static final String URL_BASE = "http://mct.ict.up.ac.th:10005";
 
     public static final String BEARER = "Bearer ";
     public static final String APPLICATION_JSON = "application/json";
-    public static final String URL_LOGIN = "/auth/login";
-    public static final String URL_PIG = "farm/pigs";
+    public static final String URL_LOGIN = "/api/auth/login";
+    public static final String URL_PIG = "/api/farm/pigs";
     public static final String URL_PIG_BREEDER = "";
 
     public static final String URL_FIX_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjkzODkz" +
